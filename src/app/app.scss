@@ -1,0 +1,9 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.app-content {
+  min-height: 100vh;   /* 👈 makes content at least one screen tall */
+}
