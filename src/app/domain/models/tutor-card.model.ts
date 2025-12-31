@@ -6,6 +6,7 @@ export interface TutorCard {
   name: string;
   imageUrl: string;
   headline: string;
+  price?: number;
   likes: number;
   rating: Rating;
   reviews: Review[];

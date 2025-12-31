@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-left">
+    <img [src]="tutor.imageUrl" [alt]="tutor.name" class="card-image" />
+    <h3 class="card-title">{{ tutor.name }}</h3>
+    <div class="card-location">
+      <span>{{ tutor.location.city }}, {{ tutor.location.country }}</span>
+    </div>
+  </div>
+  <div class="card-right">
+    <p class="card-headline">{{ tutor.headline }}</p>
+    <p class="card-description">{{ tutor.description }}</p>
+    <p class="price">£ {{tutor.price}} per session</p>
+    
+    <div class="card-footer">
+        <div class="card-meta">
+      <a href="#reviews" class="card-reviews-link">
+        <span class="rating-stars">⭐ {{ tutor.rating.average }}</span>
+        <span class="rating-count">({{ tutor.rating.count }} reviews)</span>
+      </a>
+      <div class="card-likes" aria-label="likes">
+        <span class="likes-icon">❤️</span>
+        <span class="likes-count">{{ tutor.likes }}</span>
+      </div>
+    </div>
+      <button class="btn-contact">See More</button>
+    </div>
+  </div>
+</div>
