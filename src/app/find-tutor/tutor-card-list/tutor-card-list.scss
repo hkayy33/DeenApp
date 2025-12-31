@@ -1,0 +1,24 @@
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  overflow-y: auto;
+  min-height: auto;
+  padding: 8px;
+  /* Hide native scrollbars but keep scrolling functionality */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scrollbar-color: transparent transparent;
+  width: 100%;
+  height: 800px;
+
+  margin-top: 15px;
+  height: 695px;
+  border-radius: 15px;
+}
+
+/* WebKit browsers (Chrome, Safari, Opera) */
+.card-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

@@ -1,6 +1,9 @@
 :host {
   margin-top: 30px;
-  width: min(90%, 1200px);
+  /* allow pages to override the container max width via CSS variable
+     e.g. set `--page-container-width: 1600px` on the `app-page-container` host
+     or add a host class like `class="wide"` on the component tag. */
+  width: min(90%, var(--page-container-width, 1200px));
 
   /* ✅ allow container to shrink/grow with screen height */
   min-height: clamp(360px, 55vh, 560px);
@@ -16,6 +19,17 @@
   align-items: center;
   gap: 14px;
 }
+
+/* Convenience host classes you can add on the `app-page-container` element
+   from any page to quickly change the width: <app-page-container class="wide"> */
+:host(.narrow) {
+  --page-container-width: 800px;
+}
+
+:host(.wide) {
+  --page-container-width: 1600px;
+}
+
 
 .container {
   width: 100%;
