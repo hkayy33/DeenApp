@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carousel-card',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './carousel-card.html',
   styleUrl: './carousel-card.scss',
 })
 export class CarouselCard {
+
+  @Input() number = '';
+  @Input() title = '';
+  @Input() imageUrl = '';
+  @Input() description = '';
+  @Input() buttonText = '';
+  @Input() showButton = false;
 
 }

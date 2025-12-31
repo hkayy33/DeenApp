@@ -1,0 +1,39 @@
+.carousel {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+
+  /* horizontal scroller */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+
+  padding: 8px 12px;
+}
+
+.card-group {
+  display: flex;
+  align-items: stretch;
+
+  /* ✅ responsive spacing */
+  gap: clamp(14px, 3vw, 40px);
+
+  /* keep the row width to its content so scroller activates when needed */
+  width: max-content;
+  /* center when it fits, but allow scrolling when it overflows */
+  margin: 0 auto;
+  padding-inline: 4px;
+}
+
+/* ensure children participate in scroll snapping (defensive) */
+.card-group > * {
+  scroll-snap-align: center;
+}
+
+/* tiny screens: allow stacking if you prefer (optional) */
+@media (max-width: 420px) {
+  .card-group {
+    gap: 16px;
+  }
+}
