@@ -2,7 +2,6 @@
   width: 100%;
   min-height: clamp(180px, 25vh, 240px);
   height: 220px;
-  align-items: stretch;
   border: none;
   border-radius: 16px;
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
@@ -12,10 +11,16 @@
   display: flex;
   gap: 20px;
   text-align: left;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  align-items: stretch;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
 
   .card-left {
     display: flex;
@@ -30,6 +35,7 @@
     height: 96px;
     border-radius: 12px;
     object-fit: cover;
+    background: #eee;
   }
 
   .card-title {
@@ -47,90 +53,105 @@
     color: #666;
     width: 120px;
   }
-  /* Reviews & likes moved under description */
-  .card-meta {
-    
-  }
-
-  .card-reviews-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-
-    &:hover {
-      color: #0066cc;
-    }
-
-    .rating-stars {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .rating-count {
-      font-size: 12px;
-      color: #666;
-    }
-  }
-
-  .card-likes {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: #666;
-
-    .likes-icon {
-      font-size: 14px;
-      line-height: 1;
-      padding-left: 15px;
-    }
-
-    .likes-count {
-      font-weight: 600;
-      color: #333;
-    }
-  }
 
   .card-right {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     min-height: 100%;
-  }
 
-  .card-headline {
-    margin: 0 0 12px 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
+    .card-headline {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
 
-  .card-description {
-    margin: 0 0 16px 0;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.4;
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-  }
+    .card-description {
+      margin: 0 0 16px 0;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.4;
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
 
-  .card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    margin-top: auto;
-    padding-bottom: 4px;
+    .price {
+      margin: 0 0 12px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      white-space: nowrap;
+    }
 
-      .btn-contact {
+    // ✅ footer row: meta on the left, button on the right (same line)
+    .card-footer {
+      margin-top: auto; // pushes footer to bottom of card-right
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+
+    // ✅ ratings + likes stay on one line
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .card-reviews-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+
+      &:hover {
+        color: #0066cc;
+      }
+
+      .rating-stars {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .rating-count {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+
+    .card-likes {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #666;
+      white-space: nowrap;
+
+      .likes-icon {
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .likes-count {
+        font-weight: 700;
+        color: #333;
+      }
+    }
+
+    .btn-contact {
       background: lawngreen;
       color: black;
       border: none;
@@ -139,12 +160,13 @@
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+
       transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-      margin-left: 300px;
 
       &:hover {
         transform: translateY(-2px);
-        
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
       }
 

@@ -1,0 +1,54 @@
+<app-page-content-section>
+<div class="containers">
+    <div class="container-left">
+        <div class="tutor-info-section">
+            <div class="tutor-photo"   (mouseenter)="showCarousel = true"
+  (mouseleave)="showCarousel = false">
+                Photo card
+            </div>
+            <div class="tutor-info">
+                <h3>Name</h3>
+                <div class="tutor-location">
+                    flag - country
+                </div>
+            </div>
+        </div>
+
+        <div class="subject-container">
+        <h2>Subjects</h2>
+        <ul class="subject-list">
+            <li>Quran</li>
+            <li>Arabic</li>
+            <li>Tajweed</li>
+            <li>Fiqh</li>
+            <li>Aqeedah</li>
+            <li>Hadith</li>
+        </ul>
+        </div>
+
+        <div class="about-me">
+            <h2>About me</h2>
+            <p>Hello</p>
+        </div>
+    </div>
+
+    <div class="container-right">
+        <div class="carousel" *ngIf="showCarousel">
+        <app-media-carousel ></app-media-carousel>
+        </div>
+         <div class="headline-card" *ngIf="!showCarousel">
+            <h2>Hello</h2>
+            <div class="price-container">
+                <h3>£3 Per lesson</h3>
+            </div>
+         </div>
+
+         <div class="reviews">
+            <h2>Reviews</h2>
+         </div>
+    </div>
+</div>
+
+    
+
+</app-page-content-section>
