@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 16px;              /* space between cards */
+  width: 100%;
+  margin-top: 3px;
+}

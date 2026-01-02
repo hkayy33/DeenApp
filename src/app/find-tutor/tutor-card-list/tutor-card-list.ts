@@ -26,8 +26,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 4.8, count: 42 },
         reviews: [],
         location: { country: 'Egypt', city: 'Cairo' },
-        contactInfo: { phoneNumber: '+20123456789', email: 'ahmed@example.com' },
-        description: 'Experienced Quran and Islamic studies tutor with 10+ years of teaching experience.',
+        summary: 'Experienced Quran and Islamic studies tutor with 10+ years of teaching experience.',
       },
       {
         id: 2,
@@ -38,8 +37,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 4.9, count: 58 },
         reviews: [],
         location: { country: 'Saudi Arabia', city: 'Riyadh' },
-        contactInfo: { phoneNumber: '+966123456789', email: 'fatima@example.com' },
-        description: 'Specialized in teaching Arabic language and Islamic sciences to students worldwide.',
+        summary: 'Specialized in teaching Arabic language and Islamic sciences to students worldwide.',
       },
       {
         id: 3,
@@ -50,8 +48,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 4.7, count: 35 },
         reviews: [],
         location: { country: 'UAE', city: 'Dubai' },
-        contactInfo: { phoneNumber: '+971123456789', email: 'muhammad@example.com' },
-        description: 'Expert in Hadith sciences and Islamic jurisprudence with comprehensive knowledge.',
+        summary: 'Expert in Hadith sciences and Islamic jurisprudence with comprehensive knowledge.',
       },
       {
         id: 4,
@@ -62,8 +59,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 5.0, count: 71 },
         reviews: [],
         location: { country: 'Malaysia', city: 'Kuala Lumpur' },
-        contactInfo: { phoneNumber: '+60123456789', email: 'aisha@example.com' },
-        description: 'Dedicated to helping students memorize the Quran with proper pronunciation and tajweed.',
+        summary: 'Dedicated to helping students memorize the Quran with proper pronunciation and tajweed.',
       },
       {
         id: 1,
@@ -74,8 +70,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 4.8, count: 42 },
         reviews: [],
         location: { country: 'Egypt', city: 'Cairo' },
-        contactInfo: { phoneNumber: '+20123456789', email: 'ahmed@example.com' },
-        description: 'Experienced Quran and Islamic studies tutor with 10+ years of teaching experience.',
+        summary: 'Experienced Quran and Islamic studies tutor with 10+ years of teaching experience.',
       },
       {
         id: 2,
@@ -86,8 +81,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 4.9, count: 58 },
         reviews: [],
         location: { country: 'Saudi Arabia', city: 'Riyadh' },
-        contactInfo: { phoneNumber: '+966123456789', email: 'fatima@example.com' },
-        description: 'Specialized in teaching Arabic language and Islamic sciences to students worldwide.',
+        summary: 'Specialized in teaching Arabic language and Islamic sciences to students worldwide.',
       },
       {
         id: 3,
@@ -98,8 +92,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 4.7, count: 35 },
         reviews: [],
         location: { country: 'UAE', city: 'Dubai' },
-        contactInfo: { phoneNumber: '+971123456789', email: 'muhammad@example.com' },
-        description: 'Expert in Hadith sciences and Islamic jurisprudence with comprehensive knowledge.',
+        summary: 'Expert in Hadith sciences and Islamic jurisprudence with comprehensive knowledge.',
       },
       {
         id: 4,
@@ -110,8 +103,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 5.0, count: 71 },
         reviews: [],
         location: { country: 'Malaysia', city: 'Kuala Lumpur' },
-        contactInfo: { phoneNumber: '+60123456789', email: 'aisha@example.com' },
-        description: 'Dedicated to helping students memorize the Quran with proper pronunciation and tajweed.',
+        summary: 'Dedicated to helping students memorize the Quran with proper pronunciation and tajweed.',
       },
       {
         id: 3,
@@ -122,8 +114,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 4.7, count: 35 },
         reviews: [],
         location: { country: 'UAE', city: 'Dubai' },
-        contactInfo: { phoneNumber: '+971123456789', email: 'muhammad@example.com' },
-        description: 'Expert in Hadith sciences and Islamic jurisprudence with comprehensive knowledge.',
+        summary: 'Expert in Hadith sciences and Islamic jurisprudence with comprehensive knowledge.',
       },
       {
         id: 4,
@@ -135,8 +126,7 @@ export class TutorCardList implements OnInit {
         rating: { average: 5.0, count: 71 },
         reviews: [],
         location: { country: 'Malaysia', city: 'Kuala Lumpur' },
-        contactInfo: { phoneNumber: '+60123456789', email: 'aisha@example.com' },
-        description: 'Dedicated to helping students memorize the Quran with proper pronunciation and tajweed.',
+        summary: 'Dedicated to helping students memorize the Quran with proper pronunciation and tajweed.',
       },
     ];
   }
