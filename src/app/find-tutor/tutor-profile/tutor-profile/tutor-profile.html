@@ -1,54 +1,56 @@
 <app-page-content-section>
-<div class="containers">
+  <button class="back-button" routerLink="/find-tutor" >Back</button>
+  
+  <div class="containers">
     <div class="container-left">
-        <div class="tutor-info-section">
-            <div class="tutor-photo"   (mouseenter)="showCarousel = true"
-  (mouseleave)="showCarousel = false">
-                Photo card
-            </div>
-            <div class="tutor-info">
-                <h3>Name</h3>
-                <div class="tutor-location">
-                    flag - country
-                </div>
-            </div>
+      <div class="tutor-info-section">
+        <div class="tutor-photo-wrapper">
+          <div class="tutor-photo" (click)="toggleCarousel()">
+            <img [src]="" [alt]="tutor.name">
+          </div>
+          <button class="watch-video-btn" (click)="toggleCarousel()">
+            Watch Video
+          </button>
         </div>
-
-        <div class="subject-container">
-        <h2>Subjects</h2>
+        <div class="tutor-info">
+          <h3>{{ tutor.name }}</h3>
+          <div class="tutor-location">
+            {{ tutor.location.city }}, {{ tutor.location.country }}
+          </div>
+                <div class="subject-container">
+        <h2>Learn.. </h2>
         <ul class="subject-list">
-            <li>Quran</li>
-            <li>Arabic</li>
-            <li>Tajweed</li>
-            <li>Fiqh</li>
-            <li>Aqeedah</li>
-            <li>Hadith</li>
+          <li *ngFor="let subject of tutor.subjects">{{subject}}</li>
         </ul>
+      </div>
         </div>
+      </div>
 
-        <div class="about-me">
-            <h2>About me</h2>
-            <p>Hello</p>
-        </div>
+      <div class="about-me">
+        <h2>About me</h2>
+        <p>{{tutor.aboutMe}}</p>
+      </div>
     </div>
 
     <div class="container-right">
-        <div class="carousel" *ngIf="showCarousel">
-        <app-media-carousel ></app-media-carousel>
+      <div class="carousel" *ngIf="showCarousel">
+        <app-media-carousel></app-media-carousel>
+      </div>
+      <div class="headline-card" *ngIf="!showCarousel">
+        <h2>{{tutor.headline}}</h2>
+        <div class="price-container">
+          <h3>£{{tutor.price}} Per session</h3>
         </div>
-         <div class="headline-card" *ngIf="!showCarousel">
-            <h2>Hello</h2>
-            <div class="price-container">
-                <h3>£3 Per lesson</h3>
-            </div>
-         </div>
-
-         <div class="reviews">
-            <h2>Reviews</h2>
-         </div>
+        <button class="book-btn" (click)="bookSession()">
+          <span>Book a Session</span>
+        </button>
+      </div>
+      <div class="review-container">
+        <h2>Reviews - {{tutor.reviews.length}}</h2>
+        <div class="reviews">
+          <app-review-list [reviews]="tutor.reviews"></app-review-list>
+        </div>
+      </div>
     </div>
-</div>
-
-    
-
+  </div>
 </app-page-content-section>

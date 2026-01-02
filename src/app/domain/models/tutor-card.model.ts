@@ -1,22 +1,5 @@
-import { Review } from './review.model';
-import { Rating } from './rating.model';
+import { BaseTutor } from "./base-tutor.model";
 
-export interface TutorCard {
-  id: number;
-  name: string;
-  imageUrl: string;
-  headline: string;
-  price?: number;
-  likes: number;
-  rating: Rating;
-  reviews: Review[];
-  location: {
-    country: string;
-    city: string;
-  };
-  contactInfo: {
-    phoneNumber: string;
-    email: string;
-  };
-  description: string;
+export interface TutorCard extends BaseTutor{
+  summary: string; 
 }
