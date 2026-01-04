@@ -1,0 +1,15 @@
+<div class="country-dropdown">
+  <input
+    class="country-input"
+    [(ngModel)]="searchTerm"
+    (input)="filterCountries()"
+    (click)="openDropdown()"
+  />
+
+  <label>Select Country</label>
+  <ul *ngIf="openList">
+    <li class="drop" *ngFor="let country of filteredCountries" (click)="selectCountry(country)">
+      {{ country.name }}
+    </li>
+  </ul>
+</div>

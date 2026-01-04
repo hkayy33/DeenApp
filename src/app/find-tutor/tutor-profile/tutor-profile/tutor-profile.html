@@ -1,34 +1,65 @@
 <app-page-content-section>
-  <button class="back-button" routerLink="/find-tutor" >Back</button>
-  
-  <div class="containers">
+  <button class="back-button" routerLink="/find-tutor" *ngIf="!tutorAccount">Back</button>
+
+  <div class="containers" [ngSwitch]="tutorAccount">
     <div class="container-left">
       <div class="tutor-info-section">
-        <div class="tutor-photo-wrapper">
-          <div class="tutor-photo" (click)="toggleCarousel()">
-            <img [src]="" [alt]="tutor.name">
+        <div class="tutor-photo-wrapper" >
+          <div class="tutor-photo" (click)="toggleCarousel()" >
+            <img [src]="" [alt]="tutor.name" *ngSwitchCase="false">
+            <input type="file" *ngIf="tutorAccount">
           </div>
-          <button class="watch-video-btn" (click)="toggleCarousel()">
+          <button class="watch-video-btn" (click)="toggleCarousel()" *ngSwitchCase="false">
             Watch Video
+          </button>
+          <button class="watch-video-btn" (click)="toggleCarousel()" *ngSwitchCase="true">
+            Upload Video
           </button>
         </div>
         <div class="tutor-info">
           <h3>{{ tutor.name }}</h3>
-          <div class="tutor-location">
+          <div class="tutor-location" *ngSwitchCase="false">
+            <div >
             {{ tutor.location.city }}, {{ tutor.location.country }}
+            </div>
+            
           </div>
-                <div class="subject-container">
-        <h2>Learn.. </h2>
-        <ul class="subject-list">
-          <li *ngFor="let subject of tutor.subjects">{{subject}}</li>
-        </ul>
-      </div>
+          <div>
+              <app-country-drop-down></app-country-drop-down>
+            </div>
+          
+          
+          <div class="subject-container">
+            <div *ngSwitchCase="false">
+              <h2>Learn.. </h2>
+              <ul class="subject-list">
+                <li *ngFor="let subject of tutor.subjects">{{subject}}</li>
+              </ul>
+            </div>
+
+            <div class="teach" *ngSwitchCase="true">
+              <h2>I Teach...</h2>
+              <input [(ngModel)]="subject">
+              <button (click)="addSubject()"></button>
+              <ul class="subject-list">
+              <li *ngFor="let AddedSubject of subjects; let i = index" 
+    (mouseenter)="hoveredIndex = i" 
+    (mouseleave)="hoveredIndex = null"
+    
+>
+  {{ AddedSubject }}
+  <span class="delete-btn" [class.visible]="hoveredIndex === i" (click)="removeSubject(i)">×</span>
+</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="about-me">
         <h2>About me</h2>
-        <p>{{tutor.aboutMe}}</p>
+        <p *ngSwitchCase="false">{{tutor.aboutMe}}</p>
+        <input *ngSwitchCase="true" placeholder="">
       </div>
     </div>
 
@@ -37,15 +68,19 @@
         <app-media-carousel></app-media-carousel>
       </div>
       <div class="headline-card" *ngIf="!showCarousel">
-        <h2>{{tutor.headline}}</h2>
-        <div class="price-container">
-          <h3>£{{tutor.price}} Per session</h3>
+        <h2 *ngSwitchCase="false">{{tutor.headline}}</h2>
+        <div class="headline-container" *ngSwitchCase="true" >
+        <input class="input" placeholder="Headline">
         </div>
-        <button class="book-btn" (click)="bookSession()">
+        <div class="price-container">
+          <h3 *ngSwitchCase="false">£{{tutor.price}} Per session</h3>
+          <h3 *ngSwitchCase="true"> <input placeholder="Price">  Per session</h3>
+        </div>
+        <button class="book-btn" (click)="bookSession()" *ngSwitchCase="false">
           <span>Book a Session</span>
         </button>
       </div>
-      <div class="review-container">
+      <div class="review-container" *ngSwitchCase="false">
         <h2>Reviews - {{tutor.reviews.length}}</h2>
         <div class="reviews">
           <app-review-list [reviews]="tutor.reviews"></app-review-list>

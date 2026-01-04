@@ -5,16 +5,47 @@ import { CommonModule } from '@angular/common';
 import { TutorProfile as TutorProfileModel } from '../../../domain/models/tutor-profile.model';
 import { ReviewList } from '../../reviews/review-list/review-list/review-list';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CountryDropDown } from '../../../drop-downs/country-drop-down/country-drop-down';
 
 @Component({
   selector: 'app-tutor-profile',
-  imports: [PageContentSection, MediaCarousel, CommonModule, ReviewList,RouterLink],
+  imports: [PageContentSection, MediaCarousel, CommonModule, ReviewList, RouterLink, FormsModule, CountryDropDown],
   standalone: true,
   templateUrl: './tutor-profile.html',
   styleUrl: './tutor-profile.scss',
 })
 export class TutorProfile {
   showCarousel = false;
+
+  @Input() tutorAccount = false;
+
+  subjects: string [] = [];
+
+  subject='';
+  isHovering= false;
+  hoveredIndex: number | null = null;
+
+  searchTerm = '';
+
+
+
+  
+
+  addSubject(){
+
+
+    if(!this.subjects.includes(this.subject) && this.subject != ''){
+      this.subjects.push(this.subject.trim());
+    }
+    else{
+          alert('Already added subject');
+    }
+  }
+
+  removeSubject(index: number){
+    this.subjects.splice(index, 1);
+  }
 
 
 toggleCarousel() {
@@ -93,6 +124,8 @@ bookSession() {
         email: 'ahmed.khan@example.com',
       },
     };
+
+    
   }
 
 }

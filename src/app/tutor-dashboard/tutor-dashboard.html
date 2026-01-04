@@ -1,0 +1,18 @@
+<app-page-content-section>
+    <h2>My Dashboard</h2>
+    <div class="container">
+        <div class="tab-container">
+            <div class="tab-1 tab" (click)="openProfile()">
+                <p>My Profile</p>
+            </div>
+            <div class="tab-2 tab" (click)="openStudentDash()">
+                <p>Student Dashboard</p>
+            </div>
+        </div>
+        <div class="content-container" >
+            <app-tutor-profile *ngIf="profileTabSelected" [tutorAccount]="tutorAccount"></app-tutor-profile>
+            <h3 *ngIf="studentDashSelected"> Hello World</h3>
+        </div>
+
+    </div>
+</app-page-content-section>
