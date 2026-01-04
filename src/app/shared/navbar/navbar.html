@@ -6,7 +6,8 @@
 
     <div class="action-links">
         <a routerLink="/find-tutor">Find Tutor</a>
-        <a routerLink="/tutor-dashboard">Become a Tutor</a>
+        <a routerLink="/become-tutor">Become a Tutor</a>
+        <a routerLink="/tutor-dashboard" *ngIf="tutorAccount" >My dashboard</a>
     </div>
 
     <div class="icon-holder">

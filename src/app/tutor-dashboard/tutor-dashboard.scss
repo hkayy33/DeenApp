@@ -1,0 +1,23 @@
+.container {
+    width: 95%;
+    height: 600px;
+    border: 1px solid black;
+    display: flex;
+    border-radius: 10px;
+    .tab-container {
+        border: 1px solid red;
+        width: 170px;
+        flex-shrink: 0;
+        .tab {
+            border: 1px solid black;
+        }
+
+    }
+
+    .content-container {
+        border: 1px solid green;
+        flex: 1;
+        overflow-y: scroll;
+
+    }
+}
