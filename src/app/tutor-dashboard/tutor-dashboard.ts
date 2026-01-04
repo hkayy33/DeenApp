@@ -12,6 +12,39 @@ import { CommonModule } from '@angular/common';
 })
 export class TutorDashboard {
 
+  status='under-review';
+  statusText='';
+  statusClass = '';
+
+ngOnInit(){
+  this.getStatus();
+}
+
+getStatus() {
+  switch (this.status) {
+    case 'under-review':
+      this.statusText = 'Under review';
+      this.statusClass = 'amber';
+      break;
+
+    case 'active':
+      this.statusText = 'Active';
+      this.statusClass = 'green';
+      break;
+
+    case 'new account':
+      this.statusText = 'Fill out details';
+      this.statusClass = 'grey';
+      break;
+
+    case 'inactive':
+      this.statusText = 'Inactive';
+      this.statusClass = 'red';
+      break;
+  }
+}
+
+
   tutorAccount = true;
 
   profileTabSelected = true;

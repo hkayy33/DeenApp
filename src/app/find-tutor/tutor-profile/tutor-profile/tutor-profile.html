@@ -4,27 +4,27 @@
   <div class="containers" [ngSwitch]="tutorAccount">
     <div class="container-left">
       <div class="tutor-info-section">
-        <div class="tutor-photo-wrapper" >
-          <div class="tutor-photo" (click)="toggleCarousel()" >
-            <img [src]="" [alt]="tutor.name" *ngSwitchCase="false">
+        <div class="tutor-photo-wrapper">
+          <div class="tutor-photo" (click)="toggleCarousel()">
+            <img [src]="" [alt]="tutor.name" *ngSwitchCase="false" >
             <input type="file" *ngIf="tutorAccount">
           </div>
-          <button class="watch-video-btn" (click)="toggleCarousel()" *ngSwitchCase="false">
+          <button class="watch-video-btn" (click)="toggleCarousel()" *ngSwitchCase="false" >
             Watch Video
           </button>
-          <button class="watch-video-btn" (click)="toggleCarousel()" *ngSwitchCase="true">
+          <button class="watch-video-btn" (click)="toggleCarousel()" *ngSwitchCase="true" >
             Upload Video
           </button>
         </div>
         <div class="tutor-info">
           <h3>{{ tutor.name }}</h3>
           <div class="tutor-location" *ngSwitchCase="false">
-            <div >
+            <div *ngSwitchCase="false">
             {{ tutor.location.city }}, {{ tutor.location.country }}
             </div>
             
           </div>
-          <div>
+          <div *ngSwitchCase="true">
               <app-country-drop-down></app-country-drop-down>
             </div>
           
@@ -64,9 +64,9 @@
     </div>
 
     <div class="container-right">
-      <div class="carousel" *ngIf="showCarousel">
+      <!-- <div class="carousel" *ngIf="showCarousel">
         <app-media-carousel></app-media-carousel>
-      </div>
+      </div> -->
       <div class="headline-card" *ngIf="!showCarousel">
         <h2 *ngSwitchCase="false">{{tutor.headline}}</h2>
         <div class="headline-container" *ngSwitchCase="true" >
