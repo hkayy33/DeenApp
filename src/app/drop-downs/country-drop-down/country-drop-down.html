@@ -6,7 +6,7 @@
     (click)="openDropdown()"
   />
 
-  <label>Select Country</label>
+  <label *ngIf="!openList">Select Country</label>
   <ul *ngIf="openList">
     <li class="drop" *ngFor="let country of filteredCountries" (click)="selectCountry(country)">
       {{ country.name }}

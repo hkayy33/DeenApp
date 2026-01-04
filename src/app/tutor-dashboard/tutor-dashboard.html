@@ -2,14 +2,22 @@
     <h2>My Dashboard</h2>
     <div class="container">
         <div class="tab-container">
-            <div class="tab-1 tab" (click)="openProfile()">
+            <div class="tab-1 tab" (click)="openProfile()" [ngClass]="{ active: profileTabSelected }">
                 <p>My Profile</p>
             </div>
-            <div class="tab-2 tab" (click)="openStudentDash()">
+            <div class="tab-2 tab" (click)="openStudentDash()" [ngClass]="{ active: studentDashSelected }">
                 <p>Student Dashboard</p>
             </div>
         </div>
-        <div class="content-container" >
+        <div class="content-container">
+            <div class="status-container" *ngIf="profileTabSelected">
+                <div class="status">
+                    <span class="status-icon" [ngClass]="statusClass"></span>
+                    <span class="status-text">{{ statusText }}</span>
+                </div>
+
+                <button>Update details</button>
+            </div>
             <app-tutor-profile *ngIf="profileTabSelected" [tutorAccount]="tutorAccount"></app-tutor-profile>
             <h3 *ngIf="studentDashSelected"> Hello World</h3>
         </div>
