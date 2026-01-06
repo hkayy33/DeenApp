@@ -1,0 +1,6 @@
+@DeenTutorFinderApi_HostAddress = http://localhost:5151
+
+GET {{DeenTutorFinderApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
