@@ -11,6 +11,11 @@ public class TutorProfileUpdateRequest
     public List<string> Subjects { get; set; } = new();
     public string AboutMe { get; set; } = string.Empty;
     public ContactInfo ContactInfo { get; set; } = new();
+
+    public string Status {get; set; } = string.Empty;
+
+    public string? ImageUrl {get; set;}
+    
     // File uploads would typically be handled separately
     // public IFormFile ProfileImage { get; set; }
     // public List<IFormFile> MediaFiles { get; set; }

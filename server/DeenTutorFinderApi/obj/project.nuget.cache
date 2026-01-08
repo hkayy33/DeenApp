@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LmAFbY/JnI4=",
+  "dgSpecHash": "5o1fM32KB3A=",
   "success": true,
   "projectFilePath": "/Users/hassan/Projects/deenApp/deencentre-App/server/DeenTutorFinderApi/DeenTutorFinderApi.csproj",
   "expectedPackageFiles": [
@@ -32,8 +32,10 @@
     "/Users/hassan/.nuget/packages/microsoft.extensions.primitives/9.0.0/microsoft.extensions.primitives.9.0.0.nupkg.sha512",
     "/Users/hassan/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512",
     "/Users/hassan/.nuget/packages/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg.sha512",
+    "/Users/hassan/.nuget/packages/nager.country/4.3.4/nager.country.4.3.4.nupkg.sha512",
     "/Users/hassan/.nuget/packages/npgsql/9.0.2/npgsql.9.0.2.nupkg.sha512",
     "/Users/hassan/.nuget/packages/npgsql.entityframeworkcore.postgresql/9.0.2/npgsql.entityframeworkcore.postgresql.9.0.2.nupkg.sha512",
+    "/Users/hassan/.nuget/packages/scalar.aspnetcore/2.12.3/scalar.aspnetcore.2.12.3.nupkg.sha512",
     "/Users/hassan/.nuget/packages/system.codedom/6.0.0/system.codedom.6.0.0.nupkg.sha512",
     "/Users/hassan/.nuget/packages/system.collections.immutable/7.0.0/system.collections.immutable.7.0.0.nupkg.sha512",
     "/Users/hassan/.nuget/packages/system.composition/7.0.0/system.composition.7.0.0.nupkg.sha512",
