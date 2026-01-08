@@ -4,30 +4,50 @@
   <div class="container">
     <h3 class="card-title">Create a tutor account</h3>
 
-    <form class="form" novalidate>
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <div class="form-group">
         <label for="fullName">Full name</label>
-        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+        <input
+          type="text"
+          id="fullName"
+          placeholder="John Doe"
+          formControlName="fullName"
+        />
       </div>
 
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <input
+          type="email"
+          id="email"
+          placeholder="you@example.com"
+          formControlName="email"
+        />
       </div>
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="••••••••" required />
+        <input
+          type="password"
+          id="password"
+          placeholder="••••••••"
+          formControlName="password"
+        />
       </div>
 
       <div class="form-group">
         <label for="confirmPassword">Confirm password</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required />
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="••••••••"
+          formControlName="confirmPassword"
+        />
       </div>
 
       <div class="form-row">
         <label class="checkbox">
-          <input type="checkbox" required />
+          <input type="checkbox" formControlName="acceptTerms" />
           <span>
             I agree to the <a href="#" target="_blank">Terms</a> and
             <a href="#" target="_blank">Privacy Policy</a>
@@ -35,10 +55,12 @@
         </label>
       </div>
 
-      <button type="submit" class="submit-btn">
-        <span>Create account</span>
+      <button type="submit" class="submit-btn" [disabled]="loading">
+        <span>{{ loading ? 'Creating...' : 'Create account' }}</span>
         <span class="arrow">→</span>
       </button>
+
+      <p *ngIf="error" class="error">{{ error }}</p>
     </form>
   </div>
 </app-page-content-section>

@@ -119,3 +119,5 @@
 /Users/hassan/Projects/deenApp/deencentre-App/server/DeenTutorFinderApi/obj/Debug/net9.0/DeenTutorFinderApi.pdb
 /Users/hassan/Projects/deenApp/deencentre-App/server/DeenTutorFinderApi/obj/Debug/net9.0/DeenTutorFinderApi.genruntimeconfig.cache
 /Users/hassan/Projects/deenApp/deencentre-App/server/DeenTutorFinderApi/obj/Debug/net9.0/ref/DeenTutorFinderApi.dll
+/Users/hassan/Projects/deenApp/deencentre-App/server/DeenTutorFinderApi/bin/Debug/net9.0/Nager.Country.dll
+/Users/hassan/Projects/deenApp/deencentre-App/server/DeenTutorFinderApi/bin/Debug/net9.0/Scalar.AspNetCore.dll

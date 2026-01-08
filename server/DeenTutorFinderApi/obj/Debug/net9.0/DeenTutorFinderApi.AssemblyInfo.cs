@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeenTutorFinderApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fcab6f53f11cad006b3bb6ae0e09716cc45c2ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a3736aad0cd0cc7f929430f8eed9d94eb7b9cf7")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeenTutorFinderApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeenTutorFinderApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

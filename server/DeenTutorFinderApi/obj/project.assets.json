@@ -685,6 +685,19 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
+      "Nager.Country/4.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Nager.Country.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Nager.Country.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Npgsql/9.0.2": {
         "type": "package",
         "dependencies": {
@@ -718,6 +731,22 @@
             "related": ".xml"
           }
         }
+      },
+      "Scalar.AspNetCore/2.12.3": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "System.CodeDom/6.0.0": {
         "type": "package",
@@ -2417,6 +2446,31 @@
         "readme.md"
       ]
     },
+    "Nager.Country/4.3.4": {
+      "sha512": "rb8IdNjJNJBb0uq1m475i1rb1ldemwDjYDbXHVkZCJjjYnLATAhgLh1ckmI/AynMlO/QlMNXeBLNu8pEv3Vh1A==",
+      "type": "package",
+      "path": "nager.country/4.3.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "icon.png",
+        "lib/net48/Nager.Country.dll",
+        "lib/net48/Nager.Country.xml",
+        "lib/net8.0/Nager.Country.dll",
+        "lib/net8.0/Nager.Country.xml",
+        "lib/net9.0/Nager.Country.dll",
+        "lib/net9.0/Nager.Country.xml",
+        "lib/netstandard2.0/Nager.Country.dll",
+        "lib/netstandard2.0/Nager.Country.xml",
+        "lib/netstandard2.1/Nager.Country.dll",
+        "lib/netstandard2.1/Nager.Country.xml",
+        "nager.country.4.3.4.nupkg.sha512",
+        "nager.country.nuspec",
+        "readme.txt"
+      ]
+    },
     "Npgsql/9.0.2": {
       "sha512": "hCbO8box7i/XXiTFqCJ3GoowyLqx3JXxyrbOJ6om7dr+eAknvBNhhUHeJVGAQo44sySZTfdVffp4BrtPeLZOAA==",
       "type": "package",
@@ -2447,6 +2501,25 @@
         "npgsql.entityframeworkcore.postgresql.9.0.2.nupkg.sha512",
         "npgsql.entityframeworkcore.postgresql.nuspec",
         "postgresql.png"
+      ]
+    },
+    "Scalar.AspNetCore/2.12.3": {
+      "sha512": "tacwt36CdriuDwgCvbqj/ubRZpJRE1/pzj72yBgPt28iWyKkSPeoI0Xu8yNE2n4eZl0C9+ICec7xXxSh+XSXDA==",
+      "type": "package",
+      "path": "scalar.aspnetcore/2.12.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net10.0/Scalar.AspNetCore.dll",
+        "lib/net10.0/Scalar.AspNetCore.xml",
+        "lib/net8.0/Scalar.AspNetCore.dll",
+        "lib/net8.0/Scalar.AspNetCore.xml",
+        "lib/net9.0/Scalar.AspNetCore.dll",
+        "lib/net9.0/Scalar.AspNetCore.xml",
+        "scalar.aspnetcore.2.12.3.nupkg.sha512",
+        "scalar.aspnetcore.nuspec"
       ]
     },
     "System.CodeDom/6.0.0": {
@@ -2842,7 +2915,9 @@
     "net9.0": [
       "Microsoft.AspNetCore.OpenApi >= 9.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.2"
+      "Nager.Country >= 4.3.4",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.2",
+      "Scalar.AspNetCore >= 2.12.3"
     ]
   },
   "packageFolders": {
@@ -2898,9 +2973,17 @@
             "target": "Package",
             "version": "[9.0.0, )"
           },
+          "Nager.Country": {
+            "target": "Package",
+            "version": "[4.3.4, )"
+          },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[9.0.2, )"
+          },
+          "Scalar.AspNetCore": {
+            "target": "Package",
+            "version": "[2.12.3, )"
           }
         },
         "imports": [
