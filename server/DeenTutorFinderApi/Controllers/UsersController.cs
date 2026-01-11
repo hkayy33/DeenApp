@@ -2,6 +2,7 @@ using DeenTutorFinderApi.Data;
 using DeenTutorFinderApi.Models.DTOs.Requests;
 using DeenTutorFinderApi.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 [ApiController]
@@ -57,39 +58,41 @@ public class UsersController : ControllerBase
         }
     }
 
-
-    [HttpPost("signup")]
-    public async Task<ActionResult<User>> PostUser([FromBody] UserSignupRequest register)
+   [HttpPost("login")]
+public async Task<ActionResult<AuthResponse>> PostUser(
+    [FromBody] TutorLoginRequest loginRequest
+)
+{
+    try
     {
-        _logger.LogInformation("User signup request received for email: {Email}", register.Email);
+        var user = await _context.Users
+            .SingleOrDefaultAsync(u => u.Email == loginRequest.Email);
 
-        if (register.Password != register.ConfirmPassword)
+        if (user == null)
         {
-            _logger.LogWarning("Password mismatch for email: {Email}", register.Email);
-            return BadRequest("Passwords do not match");
+            return Unauthorized("Invalid credentials");
         }
 
-        try
+        // TEMP ONLY — replace with proper hashing later
+        if (user.PasswordHash != loginRequest.Password)
         {
-            var user = new User
-            {
-                FullName = register.FullName,
-                Email = register.Email,
-                PasswordHash = register.Password, // hash later hashPassowrd(register.Password)
-                IsTutor = false
-            };
-
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            _logger.LogInformation("User created successfully. UserId: {UserId}, Email: {Email}", user.Id, user.Email);
-            return Ok(user);
+            return Unauthorized("Invalid credentials");
         }
-        catch (Exception ex)
+
+        return Ok(new AuthResponse
         {
-            _logger.LogError(ex, "Error creating user for email: {Email}", register.Email);
-            return StatusCode(500, "An error occurred while creating the user account");
-        }
+            AccessToken = "TEST_JWT_TOKEN",
+            ExpiresAt = DateTime.UtcNow.AddHours(1),
+            IsTutor = user.IsTutor
+        });
     }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Login failed");
+        return StatusCode(500, "Login failed");
+    }
+}
+
+
 }
 

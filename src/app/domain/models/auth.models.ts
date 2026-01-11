@@ -7,8 +7,12 @@ export interface SignupRequest {
 }
 
 export interface AuthResponse {
-  token: string;
-  userId: number;
+  accessToken: string;
+  expiresAt: Date;
+  IsTutor: boolean;
+}
+
+export interface loginRequest {
   email: string;
-  name: string;
+  password: string;
 }

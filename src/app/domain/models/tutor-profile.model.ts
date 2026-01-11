@@ -1,13 +1,13 @@
+import { TutorCard } from "../../find-tutor/card/tutor-card/tutor-card";
 import { BaseTutor } from "./base-tutor.model";
 
 
-export interface TutorProfile extends BaseTutor{
+export interface TutorProfile extends TutorCard{
     aboutMe: string;
     mediaList: string[];
-    contactInfo: {
+
     phoneNumber: string;
-    email: string;
-    };
+
   subjects: string[];
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { PageContentSection } from '../../../shared/page-content-section/page-content-section/page-content-section';
 import { MediaCarousel } from '../media-carousel/media-carousel/media-carousel';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,11 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CountryDropDown } from '../../../drop-downs/country-drop-down/country-drop-down';
 
+import { TutorProfileUpdateRequest } from '../../../domain/models/tutor-profile-update.model';
+import { TutorService } from '../../../domain/services/tutor/signup.service';
+import { BaseTutor } from '../../../domain/models/base-tutor.model';
+
+
 @Component({
   selector: 'app-tutor-profile',
   imports: [PageContentSection, MediaCarousel, CommonModule, ReviewList, RouterLink, FormsModule, CountryDropDown],
@@ -15,7 +20,7 @@ import { CountryDropDown } from '../../../drop-downs/country-drop-down/country-d
   templateUrl: './tutor-profile.html',
   styleUrl: './tutor-profile.scss',
 })
-export class TutorProfile {
+export class TutorProfile implements OnInit {
   showCarousel = false;
 
   @Input() tutorAccount = false;
@@ -27,10 +32,53 @@ export class TutorProfile {
   hoveredIndex: number | null = null;
 
   searchTerm = '';
+  headline = '';
+  tutorName = '';
+  price?: number;
+  aboutme = '';
+  imageurl = '';
+  error?: string;
+  country = 'United Kingdom'; // get it to fetch the country from the other component
+  city = 'london';
+  email = ''
 
+ 
+  id = 11;
 
+ 
+private tutorService = inject(TutorService);
 
+  getTutorDetails() {
+    this.tutorService.getdetails(this.id).subscribe({
+      next: (dto: BaseTutor) => {
+        this.tutorName = dto.name;
+        this.email = dto.email;
+      },
+      error: (err) => {
+        console.error(err);
+        this.error = 'Failed to load tutor details';
+      }
+    });
+  }
   
+
+update() { // send to 
+  const payload: TutorProfileUpdateRequest = {
+    headline: this.headline,
+    aboutMe: this.aboutme,
+    price: this.price,
+    subjects: this.subjects,
+    imageUrl: this.imageurl,
+    status: 'Fill Profile',
+    location: {
+      country: this.country,
+      city: this.city,
+    },
+    email: 'hi@hi.com',
+  };
+  console.log("payload",payload);
+  return payload;
+}
 
   addSubject(){
 
@@ -54,76 +102,13 @@ toggleCarousel() {
 
 bookSession() {
   // Your booking logic here
-  console.log('Booking session with', this.tutor.name);
+ 
 }
 
   @Input() tutor!: TutorProfileModel;
 
   ngOnInit(): void {
-    this.tutor = {
-      id: 1,
-      name: 'Ahmed Khan',
-      subjects: [
-          'Quran',
-          'Tajweed',
-          'Arabic',
-          'Fiqh',
-          'Hadith',
-          'Aqeedah'
-      ],
-      imageUrl: 'https://via.placeholder.com/150',
-      headline: 'Experienced Quran & Arabic Tutor specialing in dnsuobisfbisf fsbisfbifsi fisfb',
-      price: 3,
-      likes: 124,
-
-      rating: {
-        average: 4.8,
-        count: 36,
-      },
-
-      reviews: [
-        {
-          id: 1,
-          reviewerName: 'Sarah',
-          comment: 'Excellent teacher, very patient.',
-          rating: 5,
-          createdAt: '2024-10-12',
-        },
-        {
-          id: 2,
-          reviewerName: 'Yusuf',
-          comment: 'Highly recommend.',
-          rating: 4,
-          createdAt: '2024-09-01',
-        },
-        {
-          id: 2,
-          reviewerName: 'Yusuf',
-          comment: 'Highly recommend.',
-          rating: 4,
-          createdAt: '2024-09-01',
-        },
-      ],
-
-      location: {
-        country: 'United Kingdom',
-        city: 'London',
-      },
-
-      aboutMe:
-        'I have over 10 years of experience teaching Quran, Tajweed, and Arabic to students of all ages.',
-
-      mediaList: [
-        'https://example.com/video1.mp4',
-        'https://example.com/video2.mp4',
-        'https://example.com/image1.jpg',
-      ],
-
-      contactInfo: {
-        phoneNumber: '+44 7700 900123',
-        email: 'ahmed.khan@example.com',
-      },
-    };
+   this.getTutorDetails();
 
     
   }
