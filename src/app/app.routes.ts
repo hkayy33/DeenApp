@@ -5,6 +5,8 @@ import { TutorProfile } from './find-tutor/tutor-profile/tutor-profile/tutor-pro
 import { TutorAccountDashboard } from './tutor-account/tutor-account-dashboard/tutor-account-dashboard';
 import { TutorSignup } from './account-access/tutor-signup/tutor-signup/tutor-signup';
 import { TutorDashboard } from './tutor-dashboard/tutor-dashboard';
+import { TutorLogin } from './account-access/tutor-login/tutor-login';
+import { Login } from './account-access/login/login';
 
 export const routes: Routes = [
   { path: '', component: Homepage },
@@ -13,5 +15,7 @@ export const routes: Routes = [
   { path: 'become-tutor', component: TutorAccountDashboard },
   { path: 'tutor-signup', component: TutorSignup },
   { path: 'tutor-dashboard', component: TutorDashboard },
+  { path: 'tutor-login', component: TutorLogin }
+  //{path: 'login', component: Login}
 ];
 

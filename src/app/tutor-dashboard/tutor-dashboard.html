@@ -16,7 +16,7 @@
                     <span class="status-text">{{ statusText }}</span>
                 </div>
 
-                <button>Update details</button>
+                <button (click)="sendUpdateRequest()">Update details</button>
             </div>
             <app-tutor-profile *ngIf="profileTabSelected" [tutorAccount]="tutorAccount"></app-tutor-profile>
             <h3 *ngIf="studentDashSelected"> Hello World</h3>

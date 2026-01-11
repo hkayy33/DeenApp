@@ -3,11 +3,14 @@ import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { PageContentSection } from '../../../shared/page-content-section/page-content-section/page-content-section';
 import { SignupRequest } from '../../../domain/models/auth.models';
 import { TutorService } from '../../../domain/services/tutor/signup.service';
+import { TutorLogin } from '../../tutor-login/tutor-login';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tutor-signup',
   standalone: true,
-  imports: [PageContentSection, ReactiveFormsModule],
+  imports: [PageContentSection, ReactiveFormsModule, TutorLogin, CommonModule],
   templateUrl: './tutor-signup.html',
   styleUrl: './tutor-signup.scss',
 })
@@ -15,9 +18,10 @@ export class TutorSignup {
   loading = false;
   error?: string;
   form;
+ 
 
 
-  constructor(private fb: FormBuilder, private tutorService: TutorService) {
+  constructor(private fb: FormBuilder, private tutorService: TutorService,  private router: Router) {
 
     this.form = this.fb.group({
     fullName: ['', [Validators.required, Validators.minLength(2)]],
@@ -29,7 +33,6 @@ export class TutorSignup {
   }
 
   submit() {
-    console.log(this.form);
     this.error = undefined;
 
     if (this.form.invalid) {
@@ -57,6 +60,7 @@ export class TutorSignup {
       next: (res) => {
         this.loading = false;
         // navigate / store token etc.
+        this.router.navigate(['/tutor-login'])
         console.log('Signed up:', res);
       },
       error: (err) => {

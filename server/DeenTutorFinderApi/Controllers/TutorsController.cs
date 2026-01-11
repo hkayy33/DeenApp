@@ -47,7 +47,7 @@ namespace DeenTutorFinderApi.Controllers
         public async Task<IActionResult> UpdateProfile([FromBody] TutorProfileUpdateRequest profile)
         {
             _logger.LogInformation("PUT /api/tutors/profile - Profile update request received");
-            var userId = 8; // TODO: replace with JWT user id
+            var userId = 14; // TODO: replace with JWT user id
 
             try
             {
@@ -124,26 +124,31 @@ namespace DeenTutorFinderApi.Controllers
         }
 
         // GET: api/Tutors/5
-        [HttpGet("{userid}")]
-        public async Task<ActionResult<Tutor>> GetTutor(int userid)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TutorInitialProfileDto>> GetTutor(int id)
         {
-            _logger.LogInformation("GET /api/tutors/{UserId} - Retrieving tutor", userid);
+            _logger.LogInformation("GET /api/tutors/{UserId} - Retrieving tutor", id);
             try
             {
-                var tutor = await _context.Tutors.SingleOrDefaultAsync(t => t.UserId == userid);
+                var tutor = await _context.Tutors.SingleOrDefaultAsync(t => t.Id == id);
 
                 if (tutor == null)
                 {
-                    _logger.LogWarning("Tutor not found for userId {UserId}", userid);
+                    _logger.LogWarning("Tutor not found for id {id}", id);
                     return NotFound();
                 }
+                var response = new TutorInitialProfileDto
+                {
+                    Name = tutor.Name,
+                    Email = tutor.Email
+                }; 
 
-                _logger.LogInformation("Tutor {TutorId} retrieved successfully for userId {UserId}", tutor.Id, userid);
-                return Ok(tutor);
+                _logger.LogInformation("Tutor {TutorId} retrieved successfully for Id {id}", tutor.Id, id);
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving tutor for userId {UserId}", userid);
+                _logger.LogError(ex, "Error retrieving tutor for userId {id}", id);
                 return StatusCode(500, "An error occurred while retrieving the tutor");
             }
         }
